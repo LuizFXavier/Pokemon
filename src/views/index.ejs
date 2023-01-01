@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <title>Monstro de bolso</title>
+  </head>
+  <body class="bg-dark">
+    <a class="btn bg-danger text-dark fs-2 d-flex justify-content-center align-items-center" href="/cadastro/pokemon">CADASTRO</a>
+
+    <div class="row">
+      <div class="col-sm-6 mb-3 mb-sm-0 d-flex">
+        <% pokemons.forEach(pokemon => { %>
+
+        <div class="border border-danger card h-75 mx-1 my-3" style="width: 18rem">
+          <img  src="data:image/png;base64,<%= pokemon.imagem.toString("base64")
+          %>" class="card-img-top w-100 h-50" alt="...">
+          <div class="card-body bg-secondary">
+            <h5 class="card-title fs-1">
+              <%= pokemon.especie + " #" + pokemon.numeroDex %>
+            </h5>
+              <p class="card-text text-dark fs-3"><%= pokemon.categoria%></p>
+            <a
+              href="/detalhes/pokemon/<%= pokemon.numeroDex %> "
+              class="btn text-light bg-danger "
+              >Detalhes</a
+            >
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+    
+
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

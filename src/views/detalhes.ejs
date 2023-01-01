@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+   
+    <title>Monstro de bolso</title>
+</head>
+<body class="bg-dark">
+    
+    <section class=" section about-section gray-bg text-light" id="about">
+        <div class="container ">
+            <div class="row align-items-center flex-row-reverse">
+                <div class=" w-25">
+                    <div class="border border-danger p-1 bg-secondary about-text go-to">
+                        <h3 class="dark-color"><%= pokemon.especie %></h3>
+                        <h6 class="theme-color lead"><%= "Categoria: "+pokemon.categoria %> </h6>
+                        <p><%= pokemon.description %> </p>
+                        <div class="row about-list">
+                            <div class="col-md-6">
+                                <div class="media">
+                                    <label><%= pokemon.tipo1 %> </label>
+                                    
+                                </div>
+                                
+                               
+                            </div>
+                            <div class="col-md-6">
+                                <div class="media">
+                                    <label><%= pokemon.tipo2 %></label>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 h-50 ">
+                    <div class="about-avatar">
+                        <img src="data:image/png;base64,<%= pokemon.imagem.toString("base64") %>" title="" alt="">
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <a href="/" class="btn btn-success">Voltar</a>
+</body>
+</html>

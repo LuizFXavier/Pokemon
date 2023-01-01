@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <title>Monstro de bolso</title>
+  </head>
+  <body>
+    <% if (error) { %>
+     
+        <div class="alert alert-primary d-flex align-items-center" role="alert">
+             
+            <div>
+              <%= error %> 
+            </div>
+          </div>
+    <% } %>
+ 
+    <form
+      method="post"
+      enctype="multipart/form-data"
+      action="/salvar/pokemon"
+      class="row g-3 container w-75"
+      
+    >
+      <div class="col-md-6">
+        <label class="form-label">Espécie</label>
+        <input
+          required
+          name="especie"
+          type="text"
+          class="form-control"
+          
+        />
+      </div>
+      <div class="col-md-5">
+        <label class="form-label">Categoria</label>
+        <input
+          required
+          name="categoria"
+          type="text"
+          class="form-control"
+          
+        />
+      </div>
+      <br>
+      <div class="col-md-2">
+        <label for="inputState" class="form-label">Tipo</label>
+        <select id="inputState" name="tipo1" class="form-select">
+        <% tipos.forEach(tipo => { %>
+            <option value="<%= tipo %>"><%=tipo%></option>
+        <% }) %>
+          
+        </select>
+      </div>
+      <div class="col-md-2">
+        <label for="inputState" class="form-label">Tipo 2</label>
+        <select id="inputState" name="tipo2" class="form-select">
+            <% tipos.forEach(tipo => { %>
+                <option value="<%= tipo %>"><%=tipo%></option>
+            <% }) %>
+          <option>...</option>
+        </select>
+      </div>
+      <div class="col-md-2 w-25">
+        <label class="form-label">Número da Pokédex</label>
+        <input class="form-control" required name="numeroDex" type="number">
+      </div>
+
+      <div class="col-md-2">
+        <label for="inputState" class="form-label">Geração</label>
+        <select id="inputState" class="form-select" name="generation">
+          <% for( let index = 1; index <= 9; index++ ) { %>
+            <option value="<%= index %>"><%= index %></option>
+          <% } %>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-text">Descrição</span>
+        
+        <textarea name="description" class="form-control" aria-label="With textarea"></textarea>
+      </div>
+
+      <label class="form-label">Imagem</label>
+      <div class="input-group mb-4 w-75">
+        <input name="imagem" type="file" class="form-control" id="inputGroupFile02">
+        <label class="input-group-text" for="inputGroupFile02">Upload</label>
+      </div>
+      
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </div>
+    </form>
+  </body>
+</html>
